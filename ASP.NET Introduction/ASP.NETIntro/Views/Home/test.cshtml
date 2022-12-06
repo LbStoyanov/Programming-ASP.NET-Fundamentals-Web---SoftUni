@@ -1,5 +1,16 @@
-﻿<form asp-controller="Home" asp-action="Test" method="post">
-    <input type="number" name="id" />
-    <input type="text" name="product" />
+﻿@model TestModel
+
+
+<form asp-controller="Home" asp-action="Test" method="post">
+    <label asp-for="@Model.Id"></label>
+    <input type="number" asp-for="@Model.Id" />
+    <span asp-validation-for="@Model.Id"></span>
+    <label asp-for="@Model.Product"></label>
+    <input type="text" asp-for="@Model.Product" />    
+    <span asp-validation-for="@Model.Product"></span>
     <input type="submit" value="Send" />
 </form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
