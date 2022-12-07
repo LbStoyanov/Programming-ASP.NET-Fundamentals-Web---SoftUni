@@ -37,7 +37,7 @@ namespace ASP.NETIntro.Controllers
         }
 
         [HttpPost]
-        public IActionResult Test(TestModel testModel)
+        public IActionResult Test(int testModel)
         {
 
             if (!ModelState.IsValid)
@@ -46,7 +46,11 @@ namespace ASP.NETIntro.Controllers
             }
 
             //Dependency Injection
-            string product = testService.GetProduct(testModel);
+            //string product = testService.GetProduct(testModel);
+
+            //"www.google/ProducesDefaultResponseTypeAttribute/testmodel"
+            //    { "id":"testmodel"}
+            //{ "response:{id,name}"}
 
             //Каква е разликата ако се изпълни вместо горния ред този: sting product = testModel.Product;???????
 
