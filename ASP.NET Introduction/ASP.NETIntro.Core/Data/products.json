@@ -1,0 +1,33 @@
+[
+  {
+    "id": "01810cac-d582-4064-9383-be9dc3babbf9",
+    "name": "Cheese",
+    "price": "20",
+    "quantity": 50
+  },
+  {
+    "id": "b029c165-b7cc-4457-bb0a-fcd00a90e88a",
+    "name": "Hamon",
+    "price": "44.15",
+    "quantity": 150
+  },
+  {
+    "id": "88459e41-870a-45cf-a41e-95cb22efbe9f",
+    "name": "Pizza",
+    "price": "5.55",
+    "quantity": 25
+  },
+  {
+    "id": "872f9897-b1fc-44b7-9de9-1e86803cbcd8",
+    "name": "Milk",
+    "price": "3.45",
+    "quantity": 180
+  },
+  {
+    "id": "4acf8c2b-4404-45fd-9de4-c43c726a1263",
+    "name": "Bread",
+    "price": "2.03",
+    "quantity": 100
+  }
+
+]

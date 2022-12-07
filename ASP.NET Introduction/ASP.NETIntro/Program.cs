@@ -1,4 +1,6 @@
 using ASP.NETIntro.Contracts;
+using ASP.NETIntro.Core.Contracts;
+using ASP.NETIntro.Core.Services;
 using ASP.NETIntro.Data;
 using ASP.NETIntro.Services;
 using Microsoft.AspNetCore.Identity;
@@ -17,6 +19,8 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<ITestService, TestService>();
+
+builder.Services.AddScoped<IProductService, ProductService>();
 
 var app = builder.Build();
 
