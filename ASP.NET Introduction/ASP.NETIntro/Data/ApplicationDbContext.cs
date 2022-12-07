@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using ASP.NETIntro.Core.Models;
 
 namespace ASP.NETIntro.Data
 {
@@ -9,5 +10,6 @@ namespace ASP.NETIntro.Data
             : base(options)
         {
         }
+        public DbSet<ASP.NETIntro.Core.Models.ProductDto> ProductDto { get; set; }
     }
 }

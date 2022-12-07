@@ -9,7 +9,7 @@ namespace ASP.NETIntro.Controllers
 
         public ProductController(IProductService productService)
         {
-            this.productService= productService;
+            this.productService = productService;
         }
 
         /// <summary>
@@ -19,7 +19,10 @@ namespace ASP.NETIntro.Controllers
         public async Task<IActionResult> Index()
         {
             var products = await productService.GetAll();
-            return View();
+
+            ViewData["Title"] = "Products";
+
+            return View(products);
         }
     }
 }

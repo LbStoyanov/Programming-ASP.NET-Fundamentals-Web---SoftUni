@@ -31,7 +31,7 @@ namespace ASP.NETIntro.Core.Services
 
             string dataPath = config.GetSection("DataFiles:Products").Value;
 
-            string data = await File.ReadAllTextAsync("dataPath");
+            string data = await File.ReadAllTextAsync(dataPath);
 
             return JsonConvert.DeserializeObject<IEnumerable<ProductDto>>(data);
         }
