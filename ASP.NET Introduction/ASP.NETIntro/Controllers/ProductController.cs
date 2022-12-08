@@ -46,6 +46,8 @@ namespace ASP.NETIntro.Controllers
                 return View(model);
             }
 
+            await productService.Add(model);
+
             return RedirectToAction(nameof(Index));
         }
     }

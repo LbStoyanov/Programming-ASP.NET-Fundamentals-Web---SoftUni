@@ -40,6 +40,8 @@ namespace ASP.NETIntro.Core.Services
                 Quantity= productDto.Quantity,
             };
 
+            //Логиката се извършва в сървиса, а тук само се запазват данните в базата???
+
             await this.context.AddAsync(product);
             await this.context.SaveChangesAsync();
         }
@@ -57,7 +59,7 @@ namespace ASP.NETIntro.Core.Services
 
             string data = await File.ReadAllTextAsync(dataPath);
 
-            return JsonConvert.DeserializeObject<IEnumerable<ProductDto>>(data);
+            return JsonConvert.DeserializeObject<IEnumerable<ProductDto>>(data)!;
         }
     }
 }

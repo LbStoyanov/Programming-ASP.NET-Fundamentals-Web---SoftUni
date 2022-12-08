@@ -14,9 +14,9 @@ namespace ASP.NETIntro.Core.Data
 
         //protected override void OnModelCreating(ModelBuilder modelBuilder)
         //{
-            
+
         //}
 
-        public DbSet<Product> Products { get; set; }
+        public DbSet<Product> Products { get; set; } = null!;
     }
 }
