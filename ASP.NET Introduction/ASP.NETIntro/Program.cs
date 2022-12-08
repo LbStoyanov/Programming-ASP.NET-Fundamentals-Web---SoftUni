@@ -20,6 +20,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<ITestService, TestService>();
 
+//When I call IProductService, you should give me ProductService
 builder.Services.AddScoped<IProductService, ProductService>();
 
 var app = builder.Build();

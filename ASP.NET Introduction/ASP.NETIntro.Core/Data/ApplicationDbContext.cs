@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using ASP.NETIntro.Core.Models;
 
-namespace ASP.NETIntro.Data
+namespace ASP.NETIntro.Core.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {
