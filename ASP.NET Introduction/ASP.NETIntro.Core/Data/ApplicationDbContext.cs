@@ -10,6 +10,6 @@ namespace ASP.NETIntro.Core.Data
             : base(options)
         {
         }
-        public DbSet<ASP.NETIntro.Core.Models.ProductDto> ProductDto { get; set; }
+        //public DbSet<ASP.NETIntro.Core.Models.ProductDto> ProductDto { get; set; }
     }
 }
