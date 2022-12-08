@@ -1,4 +1,6 @@
 ﻿using ASP.NETIntro.Core.Contracts;
+using ASP.NETIntro.Core.Data;
+using ASP.NETIntro.Core.Data.Models;
 using ASP.NETIntro.Core.Models;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
@@ -12,14 +14,36 @@ namespace ASP.NETIntro.Core.Services
     {
         private readonly IConfiguration config;
 
+        private readonly ApplicationDbContext context;
+
         /// <summary>
         /// IoC
         /// </summary>
         /// <param name="config">Application configuratuin</param>
-        public ProductService(IConfiguration config)
+        public ProductService(IConfiguration config,ApplicationDbContext context)
         {
             this.config = config;
+            this.context= context;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="productDto"></param>
+        /// <returns></returns>
+        public async Task Add(ProductDto productDto)
+        {
+            var product = new Product()
+            {
+                Name = productDto.Name,
+                Price= productDto.Price,
+                Quantity= productDto.Quantity,
+            };
+
+            await this.context.AddAsync(product);
+            await this.context.SaveChangesAsync();
+        }
+
         /// <summary>
         /// Gets all products
         /// </summary>
