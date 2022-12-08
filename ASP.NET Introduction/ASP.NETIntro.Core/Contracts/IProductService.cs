@@ -5,6 +5,9 @@ namespace ASP.NETIntro.Core.Contracts
     /// <summary>
     /// Manipulates product data
     /// </summary>
+    /// 
+
+    //We need interface only if later we will test it, otherwise we can use only the respective class!!!
     public interface IProductService
     {
         /// <summary>

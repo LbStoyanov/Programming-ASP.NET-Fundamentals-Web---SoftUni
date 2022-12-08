@@ -15,6 +15,7 @@ namespace ASP.NETIntro.Core.Services
         private readonly IConfiguration config;
 
         private readonly ApplicationDbContext context;
+        //private readonly IRepo repo => We can create additional repo for usage, in order to prevent mistakes when we interacting with the DB!!!;
 
         /// <summary>
         /// IoC
