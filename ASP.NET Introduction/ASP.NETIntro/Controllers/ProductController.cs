@@ -1,4 +1,5 @@
 ﻿using ASP.NETIntro.Core.Contracts;
+using ASP.NETIntro.Core.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ASP.NETIntro.Controllers
@@ -23,6 +24,29 @@ namespace ASP.NETIntro.Controllers
             ViewData["Title"] = "Products";
 
             return View(products);
+        }
+
+        [HttpGet]
+        public IActionResult Add()
+        {
+            var model = new ProductDto();
+
+            ViewData["Title"] = "Add new product";
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Add(ProductDto model)
+        {
+            ViewData["Title"] = "Add new product";
+
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            return RedirectToAction(nameof(Index));
         }
     }
 }

@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using ASP.NETIntro.Core.Data.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using ASP.NETIntro.Core.Models;
 
 namespace ASP.NETIntro.Core.Data
 {
@@ -11,5 +11,12 @@ namespace ASP.NETIntro.Core.Data
         {
         }
         //public DbSet<ASP.NETIntro.Core.Models.ProductDto> ProductDto { get; set; }
+
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+            
+        //}
+
+        public DbSet<Product> Products { get; set; }
     }
 }
