@@ -2,6 +2,7 @@
 using ASP.NETIntro.Core.Data;
 using ASP.NETIntro.Core.Data.Models;
 using ASP.NETIntro.Core.Models;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 
@@ -56,11 +57,18 @@ namespace ASP.NETIntro.Core.Services
             //string dataPath = config.GetValue();
             //throw new NotImplementedException();
 
-            string dataPath = config.GetSection("DataFiles:Products").Value;
+            //string dataPath = config.GetSection("DataFiles:Products").Value;
+            //string data = await File.ReadAllTextAsync(dataPath);
+            //return JsonConvert.DeserializeObject<IEnumerable<ProductDto>>(data)!;
 
-            string data = await File.ReadAllTextAsync(dataPath);
-
-            return JsonConvert.DeserializeObject<IEnumerable<ProductDto>>(data)!;
+            return await this.context.Products
+                .Select(p => new ProductDto()
+                {
+                    Id= p.Id,
+                    Name= p.Name,
+                    Price= p.Price,
+                    Quantity= p.Quantity
+                }).ToListAsync();
         }
     }
 }

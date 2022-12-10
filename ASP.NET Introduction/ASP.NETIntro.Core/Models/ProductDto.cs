@@ -30,6 +30,7 @@ namespace ASP.NETIntro.Core.Models
         /// </summary>
 
         //[Range(typeof(decimal), "0.1", "10000", ConvertValueInInvariantCulture =true)]
+        [Required]
         public decimal Price { get; set; }
 
         /// <summary>
