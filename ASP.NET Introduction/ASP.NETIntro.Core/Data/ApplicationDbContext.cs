@@ -12,10 +12,15 @@ namespace ASP.NETIntro.Core.Data
         }
         //public DbSet<ASP.NETIntro.Core.Models.ProductDto> ProductDto { get; set; }
 
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            //modelBuilder.Entity<Product>()
+            //    .Property(p => p.IsActive)
+            //    .HasDefaultValue(true);
 
-        //}
+
+            base.OnModelCreating(modelBuilder);
+        }
 
         public DbSet<Product> Products { get; set; } = null!;
     }

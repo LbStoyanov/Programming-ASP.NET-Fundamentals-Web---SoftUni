@@ -27,5 +27,8 @@ namespace ASP.NETIntro.Core.Data.Models
         [Required]
         [Comment("Product quantity")]
         public int Quantity { get; set; }
+
+        [Comment("Product is active")]
+        public bool IsActive { get; set; } = true;
     }
 }
