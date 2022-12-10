@@ -41,7 +41,7 @@ namespace ASP.NETIntro.Core.Services
                 Quantity= productDto.Quantity,
             };
 
-            //Логиката се извършва в сървиса, а тук само се запазват данните в базата???
+            //Логиката се извършва тук в сървиса, запазват данните в базата, a в контролера само викаш необходимия сървис???
 
             await this.context.AddAsync(product);
             await this.context.SaveChangesAsync();

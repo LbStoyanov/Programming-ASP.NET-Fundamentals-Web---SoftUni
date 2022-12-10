@@ -29,7 +29,7 @@ namespace ASP.NETIntro.Core.Models
         /// Product price
         /// </summary>
 
-        [Range(typeof(decimal), "0.1", "10000", ConvertValueInInvariantCulture =true)]
+        //[Range(typeof(decimal), "0.1", "10000", ConvertValueInInvariantCulture =true)]
         public decimal Price { get; set; }
 
         /// <summary>
