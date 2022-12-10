@@ -48,6 +48,19 @@ namespace ASP.NETIntro.Core.Services
             await this.context.SaveChangesAsync();
         }
 
+        public async Task Delete(Guid id)
+        {
+            var product = await this.context.Products
+                .FirstOrDefaultAsync(p => p.Id == id);
+
+            if (product != null)
+            {
+                product.IsActive = false;
+
+                await this.context.SaveChangesAsync();
+            }
+        }
+
         /// <summary>
         /// Gets all products
         /// </summary>
