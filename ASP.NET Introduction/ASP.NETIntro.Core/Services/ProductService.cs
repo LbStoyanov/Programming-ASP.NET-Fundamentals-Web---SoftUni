@@ -62,6 +62,7 @@ namespace ASP.NETIntro.Core.Services
             //return JsonConvert.DeserializeObject<IEnumerable<ProductDto>>(data)!;
 
             return await this.context.Products
+                .Where(p => p.IsActive)
                 .Select(p => new ProductDto()
                 {
                     Id= p.Id,
