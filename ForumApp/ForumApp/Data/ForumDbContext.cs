@@ -19,6 +19,6 @@ namespace ForumApp.Data
             base.OnModelCreating(modelBuilder);
         }
 
-        DbSet<Post> Posts { get; set; } = null!;
+        public DbSet<Post> Posts { get; set; } = null!;
     }
 }
