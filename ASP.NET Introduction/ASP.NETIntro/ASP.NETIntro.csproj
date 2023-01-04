@@ -24,4 +24,12 @@
     <ProjectReference Include="..\ASP.NETIntro.Core\ASP.NETIntro.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Pages\Account\Register.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Pages\Account\Register.cshtml" />
+  </ItemGroup>
+
 </Project>
