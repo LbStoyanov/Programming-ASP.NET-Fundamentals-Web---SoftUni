@@ -1,9 +1,11 @@
 ﻿using ASP.NETIntro.Core.Contracts;
 using ASP.NETIntro.Core.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ASP.NETIntro.Controllers
 {
+    [Authorize]
     public class ProductController : Controller
     {
         private readonly IProductService productService;
