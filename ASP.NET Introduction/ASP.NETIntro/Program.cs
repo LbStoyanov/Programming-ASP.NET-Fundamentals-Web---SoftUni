@@ -14,7 +14,18 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString!).UseSnakeCaseNamingConvention());
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+//builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddDefaultIdentity<IdentityUser>(options =>
+    {
+        options.Password.RequireNonAlphanumeric = true;
+        options.Password.RequiredLength = 6;
+
+        options.User.RequireUniqueEmail = true;
+
+       // options.Lockout.AllowedForNewUsers = true;
+       
+
+    })
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 
