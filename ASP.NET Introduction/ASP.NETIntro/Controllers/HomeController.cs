@@ -3,10 +3,11 @@ using ASP.NETIntro.Models;
 using ASP.NETIntro.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ASP.NETIntro.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         private readonly ILogger<HomeController> _logger;
 
@@ -19,11 +20,13 @@ namespace ASP.NETIntro.Controllers
             
         }
 
+        [AllowAnonymous]
         public IActionResult Index()
         {
             return View();
         }
 
+        [AllowAnonymous]
         public IActionResult Privacy()
         {
             return View();
@@ -36,27 +39,28 @@ namespace ASP.NETIntro.Controllers
             return View(model);
         }
 
-        [HttpPost]
-        public IActionResult Test(int testModel)
-        {
+        //[HttpPost]
+        //public IActionResult Test(int testModel)
+        //{
 
-            if (!ModelState.IsValid)
-            {
-                return View(testModel);
-            }
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return View(testModel);
+        //    }
 
-            //Dependency Injection
-            //string product = testService.GetProduct(testModel);
+        //    Dependency Injection
+        //    string product = testService.GetProduct(testModel);
 
-            //"www.google/ProducesDefaultResponseTypeAttribute/testmodel"
-            //    { "id":"testmodel"}
-            //{ "response:{id,name}"}
+        //    "www.google/ProducesDefaultResponseTypeAttribute/testmodel"
+        //        { "id":"testmodel"}
+        //    { "response:{id,name}"}
 
-            //Каква е разликата ако се изпълни вместо горния ред този: sting product = testModel.Product;???????
+        //    Каква е разликата ако се изпълни вместо горния ред този: sting product = testModel.Product;???????
 
-            return RedirectToAction(nameof(Index));
-        }
+        //    return RedirectToAction(nameof(Index));
+        //}
 
+        [AllowAnonymous]
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

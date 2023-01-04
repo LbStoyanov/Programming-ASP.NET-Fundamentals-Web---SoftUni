@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace ASP.NETIntro.Controllers
 {
     [Authorize]
-    public class ProductController : Controller
+    public class ProductController : BaseController
     {
         private readonly IProductService productService;
 
