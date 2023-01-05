@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using TaskBoardApp.Data.Entities;
@@ -35,10 +36,12 @@ namespace TaskBoardApp.Data
                 .HasForeignKey(t => t.BoardId)
                 .OnDelete(DeleteBehavior.Restrict);
 
+            SeedUsers();
             builder
                 .Entity<User>()
                 .HasData(this.GuestUser);
 
+            SeedBoards();
             builder
                 .Entity<Board>()
                 .HasData(this.OpenBoard, this.InProgressBoard, this.DoneBoard);
@@ -49,6 +52,7 @@ namespace TaskBoardApp.Data
                     {
                         Id = 1,
                         Title = "Prepare for ASP.NET Fundamentals exam",
+                        Description = "Learn using ASP.NET Core Identity",
                         CreatedOn = DateTime.Now.AddMonths(-1),
                         OwnerId = this.GuestUser.Id,
                         BoardId = this.OpenBoard.Id
@@ -82,6 +86,44 @@ namespace TaskBoardApp.Data
                     });
 
             base.OnModelCreating(builder);
+        }
+
+        private void SeedBoards()
+        {
+            this.OpenBoard = new Board()
+            {
+                Id = 1,
+                Name = "Open"
+            };
+
+            this.DoneBoard = new Board()
+            {
+                Id = 2,
+                Name = "Done"
+            };
+
+            this.InProgressBoard = new Board()
+            {
+                Id = 3,
+                Name = "In Progress"
+            };
+        }
+
+        private void SeedUsers()
+        {
+            var hasher = new PasswordHasher<IdentityUser>();
+
+            this.GuestUser = new User()
+            {
+                UserName = "guest",
+                NormalizedUserName = "GUEST",
+                Email = "guest@mail.com",
+                NormalizedEmail = "GUEST@MAIL.COM",
+                FirstName = "Guest",
+                LastName = "User"
+            };
+
+            this.GuestUser.PasswordHash = hasher.HashPassword(this.GuestUser, "guest");
         }
     }
 
