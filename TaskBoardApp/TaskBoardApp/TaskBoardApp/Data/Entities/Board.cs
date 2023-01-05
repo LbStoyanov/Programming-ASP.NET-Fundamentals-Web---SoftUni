@@ -6,7 +6,7 @@ namespace TaskBoardApp.Data.Entities
     public class Board
     {
        
-        public int Id { get; set; }
+        public int Id { get; init; }
 
         [Required]
         [MaxLength(MaxBoardName)]
