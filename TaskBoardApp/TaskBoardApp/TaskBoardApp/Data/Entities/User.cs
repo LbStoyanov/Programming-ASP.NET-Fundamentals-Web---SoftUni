@@ -6,7 +6,7 @@ namespace TaskBoardApp.Data.Entities
 {
     public class User : IdentityUser
     {
-        //public Guid Id { get; set; }
+        public int Id { get; set; }
 
         [Required]
         [MaxLength(MaxUserFirstName)]
