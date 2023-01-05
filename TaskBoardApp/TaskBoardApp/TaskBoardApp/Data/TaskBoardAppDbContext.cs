@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Design;
 using TaskBoardApp.Data.Entities;
 using Task = TaskBoardApp.Data.Entities.Task;
 
@@ -64,7 +63,7 @@ namespace TaskBoardApp.Data
                         Description = "Learn using EF Core and MS SQL Server Managment Studio",
                         CreatedOn = DateTime.Now.AddMonths(-5),
                         OwnerId = this.GuestUser.Id,
-                        BoardId  = this.DoneBoard.Id,
+                        BoardId = this.DoneBoard.Id,
                     },
                     new Task()
                     {
@@ -83,7 +82,8 @@ namespace TaskBoardApp.Data
                         CreatedOn = DateTime.Now.AddMonths(-5),
                         OwnerId = this.GuestUser.Id,
                         BoardId = this.DoneBoard.Id,
-                    });
+                    }
+                );
 
             base.OnModelCreating(builder);
         }
