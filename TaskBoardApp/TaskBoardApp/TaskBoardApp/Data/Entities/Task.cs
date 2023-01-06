@@ -22,9 +22,9 @@ namespace TaskBoardApp.Data.Entities
         public Board Board { get; set; } = null!;
 
         [Required]
-        public int OwnerId { get; set; }
+        public int OwnerId { get; set; } 
 
-        public User Owner { get; set; } = null!;
+        public User Owner { get; init; } = null!;
 
     }
 }

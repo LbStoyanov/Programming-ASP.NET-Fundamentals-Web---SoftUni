@@ -20,7 +20,7 @@ namespace TaskBoardApp.Data
         public TaskBoardAppDbContext(DbContextOptions<TaskBoardAppDbContext> options)
             : base(options)
         {
-            this.Database.Migrate();
+            //this.Database.Migrate();
         }
 
         public DbSet<Board> Boards { get; set; }
@@ -48,41 +48,45 @@ namespace TaskBoardApp.Data
             builder
                 .Entity<Task>()
                 .HasData(new Task()
-                    {
-                        Id = 1,
-                        Title = "Prepare for ASP.NET Fundamentals exam",
-                        Description = "Learn using ASP.NET Core Identity",
-                        CreatedOn = DateTime.Now.AddMonths(-1),
-                        OwnerId = this.GuestUser.Id,
-                        BoardId = this.OpenBoard.Id
-                    },
-                    new Task()
-                    {
-                        Id = 2,
-                        Title = "Improve EF Core skills",
-                        Description = "Learn using EF Core and MS SQL Server Managment Studio",
-                        CreatedOn = DateTime.Now.AddMonths(-5),
-                        OwnerId = this.GuestUser.Id,
-                        BoardId = this.DoneBoard.Id,
-                    },
-                    new Task()
-                    {
-                        Id = 3,
-                        Title = "Improve ASP.NET Core skills",
-                        Description = "Learn using ASP.NET Core Identity",
-                        CreatedOn = DateTime.Now.AddDays(-10),
-                        OwnerId = this.GuestUser.Id,
-                        BoardId = this.InProgressBoard.Id,
-                    },
-                    new Task()
-                    {
-                        Id = 4,
-                        Title = "Prepare for C# Web Exam",
-                        Description = "Prepare by solving old Mid and Final exams",
-                        CreatedOn = DateTime.Now.AddMonths(-5),
-                        OwnerId = this.GuestUser.Id,
-                        BoardId = this.DoneBoard.Id,
-                    }
+                {
+                    Id = 1,
+                    Title = "Prepare for ASP.NET Fundamentals exam",
+                    Description = "Learn using ASP.NET Core Identity",
+                    CreatedOn = DateTime.Now.AddMonths(-1),
+                    OwnerId = this.GuestUser.Id,
+                    Owner = this.GuestUser,
+                    BoardId = this.OpenBoard.Id
+                },
+                new Task()
+                {
+                    Id = 2,
+                    Title = "Improve EF Core skills",
+                    Description = "Learn using EF Core and MS SQL Server Managment Studio",
+                    CreatedOn = DateTime.Now.AddMonths(-5),
+                    OwnerId = this.GuestUser.Id,
+                    Owner = this.GuestUser,
+                    BoardId = this.DoneBoard.Id,
+                },
+                new Task()
+                {
+                    Id = 3,
+                    Title = "Improve ASP.NET Core skills",
+                    Description = "Learn using ASP.NET Core Identity",
+                    CreatedOn = DateTime.Now.AddDays(-10),
+                    OwnerId = this.GuestUser.Id,
+                    Owner = this.GuestUser,
+                    BoardId = this.InProgressBoard.Id,
+                },
+                new Task()
+                {
+                    Id = 4,
+                    Title = "Prepare for C# Web Exam",
+                    Description = "Prepare by solving old Mid and Final exams",
+                    CreatedOn = DateTime.Now.AddMonths(-5),
+                    OwnerId = this.GuestUser.Id,
+                    Owner = this.GuestUser,
+                    BoardId = this.DoneBoard.Id,
+                }
                 );
 
             base.OnModelCreating(builder);
